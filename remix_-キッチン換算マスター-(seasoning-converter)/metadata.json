@@ -1,0 +1,5 @@
+{
+  "name": "Remix: キッチン換算マスター (Seasoning Converter)",
+  "description": "調味料の大さじ・小さじ・カップからグラム(g)への換算を瞬時に行うキッチンサポートアプリ。検索、お気に入り、履歴、カスタムデータの追加機能を備え、スマホでも使いやすい設計です。",
+  "requestFramePermissions": []
+}
