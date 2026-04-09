@@ -6,12 +6,42 @@
     <title>キッチン換算マスター</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-50">
-    <div id="root">
-        <div class="flex items-center justify-center min-h-screen">
-            <p class="text-lg">アプリを起動しています...</p>
+<body class="bg-slate-50 p-4">
+    <div id="root" class="max-w-md mx-auto bg-white rounded-xl shadow-md p-6 mt-10">
+        <h1 class="text-2xl font-bold text-center mb-6 text-orange-600">さじグラム換算</h1>
+        <p class="text-center text-gray-600 mb-6">のりふくAIラボ 特製ツール</p>
+        
+        <div class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">調味料を選んでね</label>
+                <select id="seasoning" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <option value="15">醤油・酒・みりん (大1=15g)</option>
+                    <option value="9">砂糖 (大1=9g)</option>
+                    <option value="12">味噌 (大1=12g)</option>
+                    <option value="12">油 (大1=12g)</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">大さじ何杯？</label>
+                <input type="number" id="spoons" value="1" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+            </div>
+            <button onclick="calculate()" class="w-full bg-orange-500 text-white font-bold py-3 rounded-lg hover:bg-orange-600 transition">
+                計算する！
+            </button>
+            <div id="result" class="mt-6 p-4 bg-orange-50 rounded-lg text-center hidden">
+                <p class="text-lg font-bold text-orange-800"><span id="gram-result">0</span> グラムだよ！</p>
+            </div>
         </div>
     </div>
-    <script type="module" src="remix_-キッチン換算マスター-(seasoning-converter)/index.tsx"></script>
+
+    <script>
+        function calculate() {
+            const spoonWeight = document.getElementById('seasoning').value;
+            const spoons = document.getElementById('spoons').value;
+            const result = spoonWeight * spoons;
+            document.getElementById('gram-result').innerText = result;
+            document.getElementById('result').classList.remove('hidden');
+        }
+    </script>
 </body>
 </html>
